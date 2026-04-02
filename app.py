@@ -85,7 +85,7 @@ def home():
     <body>
       <div class="card">
         <div class="badge">Task 3.2</div>
-        <h1>⚙️ Flask on Render</h1>
+        <h1>⚙️ Flask on Render - Updated</h1>
         <p>A Python/Flask web app deployed with environment variables and auto-deploy via Git push.</p>
         <div class="env-box">
           <p>👤 Student: <span>{STUDENT_NAME}</span></p>
