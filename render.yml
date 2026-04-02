@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flask-task32
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_MESSAGE
+        value: Task_3_SWE40006
+      - key: STUDENT_NAME
+        value: Esther
