@@ -5,7 +5,10 @@ import os
 app = Flask(__name__)
 
 def get_db():
-    return psycopg2.connect(os.environ["DATABASE_URL"])
+    db_url = os.environ.get("DATABASE_URL")
+    if not db_url:
+        raise Exception("DATABASE_URL not set")
+    return psycopg2.connect(db_url)
 
 def init_db():
     conn = get_db()
@@ -327,7 +330,10 @@ HTML = """
 </html>
 """
 
-init_db()
+try:
+    init_db()
+except Exception as e:
+    print(f"DB init warning: {e}")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
